@@ -3,8 +3,11 @@
   import axios from 'axios';
 
   import Task from '../components/Task.svelte';
+  import NewTask from '../components/NewTask.svelte';
 
+  // TODO: Make config file duh
   const baseUrl = 'http://localhost:4040';
+
   let slots = [];
 
   onMount(async () => {
@@ -12,6 +15,12 @@
     slots = res.data;
     console.log(res);
   });
+
+  async function updateSlots() {
+    const res = await axios.get(baseUrl + '/slots');
+    slots = res.data;
+    console.log(res);
+  }
 
   async function toggle(id, newState) {
     // Currently sends toggle to server and fetches everything again.
@@ -31,6 +40,7 @@
 <main>
   <h1>Today</h1>
   <p>Lists tasks for today</p>
+  <NewTask on:taskAdded={updateSlots}/>
   <div class="container">
       {#if slots.length === 0}
         <p>Loading</p>
