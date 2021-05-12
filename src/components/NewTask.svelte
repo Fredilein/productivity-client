@@ -42,10 +42,6 @@
   }
 </script>
 
-{#if selected}
-  <p>Selected: {selected.value}</p>
-{/if}
-
 <form on:submit|preventDefault={handleSubmit}>
   <div class="container newtask theme">
     <div class="row row-newtask row-newtask-input">
