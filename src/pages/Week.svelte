@@ -49,7 +49,11 @@
 
 <main>
   <h1><i class="fas fa-calendar-week"></i> Week</h1>
-  <p>Lists tasks for each weekday</p>
+  <div class="container" style="margin: 20px;">
+    <samp>- Lists tasks for each weekday</samp><br>
+    <samp>- Add a new timeslot</samp><br>
+    <samp>- TODO: Form to add category</samp><br>
+  </div>
   <div class="container">
     {#each daysMapped as day}
       <h3>{day.name}</h3>

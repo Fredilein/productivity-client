@@ -1,6 +1,6 @@
 <main>
   <h1><i class="fas fa-home"></i> Productivity</h1>
-  <p>Name recommendations are appreciated...</p>
+  <p><samp>Name recommendations are appreciated...</samp></p>
 </main>
 
 <style>
