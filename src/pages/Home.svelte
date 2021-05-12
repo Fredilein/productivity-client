@@ -7,6 +7,7 @@
 	<p>Name recommendations are appreciated...</p>
         <Router>
           <a href="/today" use:link>Today</a>
+          <a href="/week" use:link>Week</a>
         </Router>
 </main>
 

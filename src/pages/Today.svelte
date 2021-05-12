@@ -23,7 +23,7 @@
 
 <main>
   <h1>Today</h1>
-  <p>Lists tasks for today</p>
+  <p>Lists tasks for today (actually all tasks rn...)</p>
   <NewTask slots={slots} on:taskAdded={updateSlots}/>
   <div class="container">
       {#if slots.length === 0}

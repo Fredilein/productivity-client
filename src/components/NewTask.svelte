@@ -15,13 +15,13 @@
   let slotsMap;
 
   onMount(() => {
-    slotsMap = mapSlots(slots);
+    slotsMap = mapSlots();
   });
   afterUpdate(() => {
-    slotsMap = mapSlots(slots);
+    slotsMap = mapSlots();
   });
 
-  function mapSlots(s) {
+  function mapSlots() {
     return slots.map((slot) => {
       return {
         value: slot._id,
