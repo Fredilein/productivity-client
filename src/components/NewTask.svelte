@@ -1,5 +1,5 @@
 <script>
-  import { onMount, createEventDispatcher } from 'svelte';
+  import { onMount, afterUpdate, createEventDispatcher } from 'svelte';
   import Select from 'svelte-select';
   import axios from 'axios';
 
@@ -8,24 +8,27 @@
   // TODO: confiiiig
   const baseUrl = 'http://localhost:4040';
 
-  let slots = [];
-  let slotsMap;
+  export let slots = [];
+
   let selected;
   let title = '';
+  let slotsMap;
 
-  onMount(async () => {
-    const res = await axios.get(baseUrl + '/slots');
-    slots = res.data;
-    console.log(res);
+  onMount(() => {
+    slotsMap = mapSlots(slots);
+  });
+  afterUpdate(() => {
+    slotsMap = mapSlots(slots);
+  });
 
-    slotsMap = slots.map((slot) => {
+  function mapSlots(s) {
+    return slots.map((slot) => {
       return {
         value: slot._id,
         label: slot.category.title + ', day ' + slot.day
       }
     });
-  });
-
+  }
 
   function handleSelect(event) {
     selected = event.detail;
@@ -38,7 +41,7 @@
     });
     console.log(res);
     title = '';
-    dispatch("taskAdded", res.data);
+    dispatch('taskAdded', res.data);
   }
 </script>
 
