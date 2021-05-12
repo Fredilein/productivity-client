@@ -46,7 +46,7 @@
         <p>Loading</p>
       {:else}
         {#each slots as slot}
-            <div class="card">
+            <div class="card card-tasks">
               <div class="card-header">
                 {slot.category.title}
               </div>
@@ -66,5 +66,11 @@
 <style>
   .card-body {
     text-align: left;
+  }
+
+  .card-tasks {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
   }
 </style>
