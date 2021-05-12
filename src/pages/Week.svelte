@@ -4,6 +4,7 @@
 
   import Slot from '../components/Slot.svelte';
   import NewSlot from '../components/NewSlot.svelte';
+  import global from '../global.js';
 
   // duplicate code...
   const getDays = (() => {
@@ -17,9 +18,6 @@
       { id: 6, name: 'Saturday', slots: [] }];
   });
 
-  // TODO: Make config file duh
-  const baseUrl = 'http://localhost:4040';
-
   let slots = [];
   let daysMapped = getDays();
 
@@ -28,7 +26,7 @@
   });
 
   async function updateSlots() {
-    const res = await axios.get(baseUrl + '/slots');
+    const res = await axios.get(global.baseUrl + '/slots');
     slots = res.data;
     updateMapping();
   }

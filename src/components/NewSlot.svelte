@@ -3,32 +3,21 @@
   import Select from 'svelte-select';
   import axios from 'axios';
 
-  const dispatch = createEventDispatcher();
+  import global from '../global.js';
 
-  // TODO: confiiiig
-  const baseUrl = 'http://localhost:4040';
+  const dispatch = createEventDispatcher();
 
   let categories;
   let categoriesMap;
   let selectedDay;
   let selectedCat;
 
-  // duplicate code...
-  const days = [
-      { value: 0, label: 'Sunday'},
-      { value: 1, label: 'Monday'},
-      { value: 2, label: 'Tuesday'},
-      { value: 3, label: 'Wednesday'},
-      { value: 4, label: 'Thursday'},
-      { value: 5, label: 'Friday'},
-      { value: 6, label: 'Saturday'}];
-
   onMount(() => {
     updateCategories();
   });
 
   async function updateCategories() {
-    const res = await axios.get(baseUrl + '/categories');
+    const res = await axios.get(global.baseUrl + '/categories');
     categories = res.data;
     console.log(res);
     categoriesMap = mapCategories();
@@ -51,7 +40,7 @@
   }
 
   async function handleSubmit() {
-    const res = await axios.post(baseUrl + '/slots', {
+    const res = await axios.post(global.baseUrl + '/slots', {
       category: selectedCat.value,
       day: selectedDay.value
     });
@@ -68,7 +57,7 @@
         <Select items={categoriesMap} on:select={handleSelectCat} placeholder="Select Category..."></Select>
       </div>
       <div class="col col-select-mid">
-        <Select items={days} on:select={handleSelectDay} placeholder="Select Day..."></Select>
+        <Select items={global.days} on:select={handleSelectDay} placeholder="Select Day..."></Select>
       </div>
       <div class="col col-submit">
         <button class="btn btn-primary btn-new theme" disabled={!selectedDay || !selectedCat} type=submit><i class="fas fa-plus-circle"></i> Add</button>

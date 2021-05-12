@@ -4,12 +4,11 @@
 
   import Task from '../components/Task.svelte';
 
+  import global from '../global.js';
+
   export let task;
 
   const dispatch = createEventDispatcher();
-
-  // TODO: Make config file
-  const baseUrl = 'http://localhost:4040';
 
   let showDel = false;
 
@@ -18,7 +17,7 @@
   }
 
   async function deleteItem(id) {
-    const resDel = await axios.delete(baseUrl + '/tasks/' + id);
+    const resDel = await axios.delete(global.baseUrl + '/tasks/' + id);
 
     dispatch('taskUpdated');
   }
@@ -27,7 +26,7 @@
     // Currently sends toggle to server and fetches everything again.
     // TODO: Update local todo and don't reload for instant change.
     // Is ok when everything on localhost tho.
-    const resUpdate = await axios.put(baseUrl + '/tasks/' + id, {
+    const resUpdate = await axios.put(global.baseUrl + '/tasks/' + id, {
       completed: newState
     });
     console.log(resUpdate);

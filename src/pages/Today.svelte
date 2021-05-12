@@ -4,9 +4,8 @@
 
   import NewTask from '../components/NewTask.svelte';
   import Slot from '../components/Slot.svelte';
-
-  // TODO: Make config file duh
-  const baseUrl = 'http://localhost:4040';
+  
+  import global from '../global.js';
 
   let slots = [];
 
@@ -15,7 +14,7 @@
   });
 
   async function updateSlots() {
-    const res = await axios.get(baseUrl + '/slots');
+    const res = await axios.get(global.baseUrl + '/slots');
     slots = res.data;
     console.log(res);
   }

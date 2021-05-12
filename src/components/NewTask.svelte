@@ -3,10 +3,9 @@
   import Select from 'svelte-select';
   import axios from 'axios';
 
-  const dispatch = createEventDispatcher();
+  import global from '../global.js';
 
-  // TODO: confiiiig
-  const baseUrl = 'http://localhost:4040';
+  const dispatch = createEventDispatcher();
 
   export let slots = [];
 
@@ -35,7 +34,7 @@
   }
 
   async function handleSubmit() {
-    const res = await axios.post(baseUrl + '/tasks', {
+    const res = await axios.post(global.baseUrl + '/tasks', {
       title: title,
       slot: selected.value
     });
