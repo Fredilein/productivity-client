@@ -22,7 +22,7 @@
 </script>
 
 <main>
-  <h1>Today</h1>
+  <h1><i class="fas fa-calendar-day"></i> Today</h1>
   <p>Lists tasks for today (actually all tasks rn...)</p>
   <NewTask slots={slots} on:taskAdded={updateSlots}/>
   <div class="container">

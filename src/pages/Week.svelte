@@ -46,14 +46,18 @@
 </script>
 
 <main>
-  <h1>Week</h1>
+  <h1><i class="fas fa-calendar-week"></i> Week</h1>
   <p>Lists tasks for each weekday</p>
   <div class="container">
     {#each daysMapped as day}
       <h2>{day.name}</h2>
-      {#each day.slots as slot}
-        <Slot {slot} on:taskUpdated={updateSlots} />
-      {/each}
+      {#if day.slots.length === 0}
+        <p><i class="fas fa-check"></i></p>
+      {:else}
+        {#each day.slots as slot}
+          <Slot {slot} on:taskUpdated={updateSlots} />
+        {/each}
+      {/if}
     {/each}
   </div>
 </main>
