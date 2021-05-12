@@ -75,6 +75,12 @@ h1 {
         font-weight: 50;
 }
 
+h2 {
+        color: #ff3e00;
+        text-transform: uppercase;
+        font-weight: 50;
+}
+
 @media (min-width: 640px) {
         main {
                 max-width: 600px;

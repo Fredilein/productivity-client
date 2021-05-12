@@ -29,11 +29,15 @@
     {slot.category.title}
   </div>
   <div class="card-body">
-    <ul class="list-group">
-      {#each slot.tasks as t}
-        <Task task={t} on:click="{() => toggle(t._id, !t.completed)}"/>
-      {/each}
-    </ul>
+    {#if slot.tasks.length === 0}
+      <p class="no-tasks"><em>No tasks...</em></p>
+    {:else}
+      <ul class="list-group">
+        {#each slot.tasks as t}
+          <Task task={t} on:click="{() => toggle(t._id, !t.completed)}"/>
+        {/each}
+      </ul>
+    {/if}
   </div>
 </div>
 
@@ -46,5 +50,11 @@
     margin-top: 12px;
     margin-bottom: 12px;
     border-radius: 12px;
+  }
+
+  .no-tasks {
+    margin-bottom: 0px;
+    text-align: center;
+    color: grey;
   }
 </style>

@@ -3,7 +3,9 @@
   import axios from 'axios';
 
   import Slot from '../components/Slot.svelte';
+  import NewSlot from '../components/NewSlot.svelte';
 
+  // duplicate code...
   const getDays = (() => {
     return [
       { id: 0, name: 'Sunday', slots: [] },
@@ -50,7 +52,7 @@
   <p>Lists tasks for each weekday</p>
   <div class="container">
     {#each daysMapped as day}
-      <h2>{day.name}</h2>
+      <h3>{day.name}</h3>
       {#if day.slots.length === 0}
         <p><i class="fas fa-check"></i></p>
       {:else}
@@ -60,4 +62,5 @@
       {/if}
     {/each}
   </div>
+  <NewSlot />
 </main>
