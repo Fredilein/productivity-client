@@ -62,16 +62,16 @@
 <h2><i class="fas fa-calendar-plus"></i> New Slot</h2>
 
 <form on:submit|preventDefault={handleSubmit}>
-  <div class="container newtask theme">
-    <div class="row row-newtask">
-      <div class="col col-select">
+  <div class="container new theme">
+    <div class="row row-new">
+      <div class="col col-select-left">
         <Select items={categoriesMap} on:select={handleSelectCat} placeholder="Select Category..."></Select>
       </div>
-      <div class="col col-select">
+      <div class="col col-select-mid">
         <Select items={days} on:select={handleSelectDay} placeholder="Select Day..."></Select>
       </div>
       <div class="col col-submit">
-        <button class="btn btn-primary btn-newtask theme" disabled={!selectedDay || !selectedCat} type=submit><i class="fas fa-plus-circle"></i> Add</button>
+        <button class="btn btn-primary btn-new theme" disabled={!selectedDay || !selectedCat} type=submit><i class="fas fa-plus-circle"></i> Add</button>
       </div>
     </div>
   </div>
@@ -79,21 +79,23 @@
 
 
 <style>
-  .newtask {
+  .new {
     padding: 12px;
   }
 
-  .row-newtask {
+  .row-new {
     padding-left: 12px;
     padding-right: 12px;
   }
 
-  .row-newtask-input {
-    margin-bottom: 12px;
+  .col-select-left {
+    padding: 0px;
+    margin-right: 6px;
   }
 
-  .col-select {
+  .col-select-mid {
     padding: 0px;
+    margin-left: 6px;
     margin-right: 6px;
   }
 
@@ -102,12 +104,7 @@
     margin-left: 6px;
   }
 
-  .btn-newtask {
-    width: 100%;
-    height: 100%;
-  }
-
-  .input-task {
+  .btn-new {
     width: 100%;
     height: 100%;
   }
