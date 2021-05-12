@@ -1,6 +1,5 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-  import axios from 'axios';
 
   import Task from '../components/Task.svelte';
 
@@ -8,26 +7,16 @@
 
   const dispatch = createEventDispatcher();
 
-  // TODO: Make config file
-  const baseUrl = 'http://localhost:4040';
-
   function prettyTime(start, end) {
     start.minute = (start.minute.toString().length === 2) ? start.minute : '0' + start.minute;
     end.minute = (end.minute.toString().length === 2) ? end.minute : '0' + end.minute;
     return start.hour + ':' + start.minute + ' - ' + end.hour + ':' + end.minute
   }
 
-  async function toggle(id, newState) {
-    // Currently sends toggle to server and fetches everything again.
-    // TODO: Update local todo and don't reload for instant change.
-    // Is ok when everything on localhost tho.
-    const resUpdate = await axios.put(baseUrl + '/tasks/' + id, {
-      completed: newState
-    });
-    console.log(resUpdate);
-
+  function propagateTaskUpdated() {
     dispatch('taskUpdated');
   }
+
 </script>
 
 <div class="card card-tasks">
@@ -49,11 +38,9 @@
     {#if slot.tasks.length === 0}
       <p class="no-tasks"><em>No tasks...</em></p>
     {:else}
-      <ul class="list-group">
-        {#each slot.tasks as t}
-          <Task task={t} on:click="{() => toggle(t._id, !t.completed)}"/>
-        {/each}
-      </ul>
+      {#each slot.tasks as t}
+        <Task task={t} on:taskUpdated={propagateTaskUpdated}/>
+      {/each}
     {/if}
   </div>
 </div>
