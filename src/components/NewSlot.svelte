@@ -11,6 +11,26 @@
   let categoriesMap;
   let selectedDay;
   let selectedCat;
+  let start_time = {
+    hour: null,
+    minute: null
+  };
+  let end_time = {
+    hour: null,
+    minute: null
+  };
+
+  // Kinda works, kinda doesn't
+  // time input is trash anyways
+  let inputValid = false;
+  $: if (selectedDay && selectedCat && start_time.hour < 24 && start_time.minute < 60
+          && end_time.hour < 24 && end_time.minute < 60 
+          && (start_time.hour < end_time.hour || (start_time.hour === end_time.hour && start_time.minute < end_time.minute))) {
+    console.log('isvalid');
+    inputValid = true;
+  } else {
+    inputValid = false;
+  }
 
   onMount(() => {
     updateCategories();
@@ -42,7 +62,9 @@
   async function handleSubmit() {
     const res = await axios.post(global.baseUrl + '/slots', {
       category: selectedCat.value,
-      day: selectedDay.value
+      day: selectedDay.value,
+      start_time: start_time,
+      end_time: end_time
     });
     dispatch('slotAdded', res.data);
   }
@@ -56,11 +78,22 @@
       <div class="col col-select-left">
         <Select items={categoriesMap} on:select={handleSelectCat} placeholder="Select Category..."></Select>
       </div>
-      <div class="col col-select-mid">
+      <div class="col col-select-right">
         <Select items={global.days} on:select={handleSelectDay} placeholder="Select Day..."></Select>
       </div>
+    </div>
+    <div class="row row-new">
+      <div class="col col-time">
+        <input type="text" class="input-time" bind:value={start_time.hour}>
+        <span>:</span>
+        <input type="text" class="input-time" bind:value={start_time.minute}>
+        <span>-</span>
+        <input type="text" class="input-time" bind:value={end_time.hour}>
+        <span>:</span>
+        <input type="text" class="input-time" bind:value={end_time.minute}>
+      </div>
       <div class="col col-submit">
-        <button class="btn btn-primary btn-new theme" disabled={!selectedDay || !selectedCat} type=submit><i class="fas fa-plus-circle"></i> Add</button>
+        <button class="btn btn-primary btn-new theme" disabled={!inputValid} type=submit><i class="fas fa-plus-circle"></i> Add</button>
       </div>
     </div>
   </div>
@@ -75,6 +108,7 @@
   .row-new {
     padding-left: 12px;
     padding-right: 12px;
+    margin-bottom: 12px;
   }
 
   .col-select-left {
@@ -82,10 +116,9 @@
     margin-right: 6px;
   }
 
-  .col-select-mid {
+  .col-select-right {
     padding: 0px;
     margin-left: 6px;
-    margin-right: 6px;
   }
 
   .col-submit {
@@ -96,10 +129,21 @@
   .btn-new {
     width: 100%;
     height: 100%;
+    padding-left: 3px;
+    padding-right: 3px;
   }
 
   .theme {
     --borderRadius: 12px;
     border-radius: 12px;
+  }
+
+  .col-time {
+    padding: 0px;
+  }
+  
+  .input-time {
+    border-radius: 12px;
+    width: 52px;
   }
 </style>

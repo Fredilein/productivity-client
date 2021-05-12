@@ -64,5 +64,5 @@
       {/if}
     {/each}
   </div>
-  <NewSlot />
+  <NewSlot on:slotAdded={updateSlots} />
 </main>
