@@ -26,13 +26,13 @@
   <samp>- Actually lists basicly everything (all slots with all tasks)</samp><br>
   <samp>- Can add a new task here</samp><br>
 </div>
+
 <NewTask slots={slots} on:taskAdded={updateSlots}/>
-<div class="container">
-    {#if slots.length === 0}
-      <p>Loading</p>
-    {:else}
-      {#each slots as slot}
-        <Slot {slot} on:taskUpdated={updateSlots} />
-      {/each}
-    {/if}
-</div>
+
+{#if slots.length === 0}
+  <p>Loading</p>
+{:else}
+  {#each slots as slot}
+    <Slot {slot} on:taskUpdated={updateSlots} />
+  {/each}
+{/if}
