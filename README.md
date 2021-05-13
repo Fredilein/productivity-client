@@ -1,11 +1,11 @@
 # Productivity-Client
 
 ## TODO
-- [ ] Clean up CSS: Move similar stuff to `global.css`, use stylus.
+- [x] ~~Clean up CSS: Move similar stuff to `global.css`, use stylus.~~ Rewrote everything with tailwind.
 - [ ] Form to add category, probably new page with that and `NewSlot` component
 - [ ] Today view with actually today items
 - [ ] Some colors...
-- [ ] Trashcan hover effect to delete tasks sucks on mobile
+- [ ] Trashcan hover effect to delete tasks sucks on mobile. And is broken anyways.
 - [ ] Time input which is not that ugly
 
 ## Get started
