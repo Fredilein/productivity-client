@@ -38,9 +38,11 @@
     {#if slot.tasks.length === 0}
       <p class="no-tasks"><em>No tasks...</em></p>
     {:else}
-      {#each slot.tasks as t}
-        <Task task={t} on:taskUpdated={propagateTaskUpdated}/>
-      {/each}
+      <ul class="list-group">
+        {#each slot.tasks as t}
+          <Task task={t} on:taskUpdated={propagateTaskUpdated}/>
+        {/each}
+      </ul>
     {/if}
   </div>
 </div>
