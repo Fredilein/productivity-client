@@ -45,24 +45,22 @@
 
 </script>
 
-<main>
-  <h1><i class="fas fa-calendar-week"></i> Week</h1>
-  <div class="container" style="margin: 20px;">
-    <samp>- Lists tasks for each weekday</samp><br>
-    <samp>- Add a new timeslot</samp><br>
-    <samp>- TODO: Form to add category</samp><br>
-  </div>
-  <div class="container">
-    {#each daysMapped as day}
-      <h3>{day.name}</h3>
-      {#if day.slots.length === 0}
-        <p><i class="fas fa-check"></i></p>
-      {:else}
-        {#each day.slots as slot}
-          <Slot {slot} on:taskUpdated={updateSlots} />
-        {/each}
-      {/if}
-    {/each}
-  </div>
-  <NewSlot on:slotAdded={updateSlots} />
-</main>
+<h1><i class="fas fa-calendar-week"></i> Week</h1>
+<div class="container" style="margin: 20px;">
+  <samp>- Lists tasks for each weekday</samp><br>
+  <samp>- Add a new timeslot</samp><br>
+  <samp>- TODO: Form to add category</samp><br>
+</div>
+<div class="container">
+  {#each daysMapped as day}
+    <h3>{day.name}</h3>
+    {#if day.slots.length === 0}
+      <p><i class="fas fa-check"></i></p>
+    {:else}
+      {#each day.slots as slot}
+        <Slot {slot} on:taskUpdated={updateSlots} />
+      {/each}
+    {/if}
+  {/each}
+</div>
+<NewSlot on:slotAdded={updateSlots} />

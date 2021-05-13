@@ -71,7 +71,6 @@
 </script>
 
 <h2><i class="fas fa-calendar-plus"></i> New Slot</h2>
-
 <form on:submit|preventDefault={handleSubmit}>
   <div class="container new theme">
     <div class="row row-new">
@@ -101,8 +100,19 @@
 
 
 <style>
+  form {
+    padding: 12px;
+  }
+
+  h2 {
+    margin-top: 36px;
+  }
+
   .new {
     padding: 12px;
+    border: 1px solid rgba(0,0,0,.125);
+    background-color: rgba(0,0,0,.03);
+    box-shadow: 1px 2px 4px lightgrey;
   }
 
   .row-new {
@@ -144,6 +154,6 @@
   
   .input-time {
     border-radius: 12px;
-    width: 52px;
+    width: 48px;
   }
 </style>
