@@ -33,7 +33,7 @@
   }
 </script>
 
-<div class="flex py-1 my-1 text-lg text-left rounded-lg hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-700" class:checked="{task.completed}" on:mouseenter={toggleDel} on:mouseleave={toggleDel}>
+<div class="flex py-1 my-1 text-lg text-left rounded-lg hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800" class:checked="{task.completed}" on:mouseenter={toggleDel} on:mouseleave={toggleDel}>
   <div class="flex-none w-8 mx-1 text-center" role="button" on:click="{() => toggle(task._id, !task.completed)}">
     {#if task.completed}
       <div class="flex items-center justify-center h-full"><i class="far fa-check-circle"></i></div>

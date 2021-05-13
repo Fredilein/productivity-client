@@ -45,7 +45,7 @@
 
 </script>
 
-<div class="container p-3 mx-auto mb-12 font-mono text-left bg-gray-100 shadow-md sm:rounded-lg">
+<div class="container p-3 mx-auto mb-12 font-mono text-left bg-gray-100 dark:bg-gray-900 dark:text-gray-100 shadow-md sm:rounded-lg">
   <div class="font-bold">Week</div>
   - Lists tasks for each weekday<br>
   - Add a new timeslot<br>
@@ -56,9 +56,9 @@
 <NewSlot on:slotAdded={updateSlots} />
 
 {#each daysMapped as day}
-  <div class="container flex items-center justify-center w-48 h-10 mx-auto text-2xl text-black bg-gray-100 rounded-full shadow-md">{day.name}</div>
+  <div class="container flex items-center justify-center w-48 h-10 mx-auto text-2xl text-black bg-gray-100 rounded-full shadow-md dark:bg-gray-700 dark:text-gray-50">{day.name}</div>
   {#if day.slots.length === 0}
-    <div class="mt-2 mb-4"><i class="fas fa-check"></i></div>
+    <div class="mt-2 mb-4 dark:text-gray-50"><i class="fas fa-check"></i></div>
   {:else}
     {#each day.slots as slot}
       <Slot {slot} on:taskUpdated={updateSlots} />

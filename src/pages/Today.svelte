@@ -20,7 +20,7 @@
   }
 </script>
 
-<div class="container p-3 mx-auto mb-12 font-mono text-left bg-gray-100 shadow-md sm:rounded-lg">
+<div class="container p-3 mx-auto mb-12 font-mono text-left bg-gray-100 shadow-md dark:bg-gray-900 dark:text-gray-100 sm:rounded-lg">
   <div class="font-bold">Today</div>
   - Should list tasks for current day<br>
   - Actually lists basicly everything (all slots with all tasks)<br>
