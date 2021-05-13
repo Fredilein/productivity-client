@@ -45,22 +45,23 @@
 
 </script>
 
-<h1><i class="fas fa-calendar-week"></i> Week</h1>
-<div class="container" style="margin: 20px;">
-  <samp>- Lists tasks for each weekday</samp><br>
-  <samp>- Add a new timeslot</samp><br>
-  <samp>- TODO: Form to add category</samp><br>
+<div class="container p-3 mx-auto mb-12 font-mono text-left bg-gray-100 shadow-md sm:rounded-lg">
+  <div class="font-bold">Week</div>
+  - Lists tasks for each weekday<br>
+  - Add a new timeslot<br>
+  - TODO: Form to add category<br>
+  - Probably rework data model anyways<br>
 </div>
-<div class="container">
-  {#each daysMapped as day}
-    <div class="container mx-auto text-2xl bg-indigo-50 text-indigo-500 h-10 w-48 items-center justify-center flex rounded-full shadow-md">{day.name}</div>
-    {#if day.slots.length === 0}
-      <div class="mt-2 mb-4"><i class="fas fa-check"></i></div>
-    {:else}
-      {#each day.slots as slot}
-        <Slot {slot} on:taskUpdated={updateSlots} />
-      {/each}
-    {/if}
-  {/each}
-</div>
+
 <NewSlot on:slotAdded={updateSlots} />
+
+{#each daysMapped as day}
+  <div class="container flex items-center justify-center w-48 h-10 mx-auto text-2xl text-black bg-gray-100 rounded-full shadow-md">{day.name}</div>
+  {#if day.slots.length === 0}
+    <div class="mt-2 mb-4"><i class="fas fa-check"></i></div>
+  {:else}
+    {#each day.slots as slot}
+      <Slot {slot} on:taskUpdated={updateSlots} />
+    {/each}
+  {/if}
+{/each}

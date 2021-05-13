@@ -33,12 +33,12 @@
   }
 </script>
 
-<div class="text-left text-lg flex my-2" class:checked="{task.completed}" on:mouseenter={toggleDel} on:mouseleave={toggleDel}>
-  <div class="flex-none text-center w-8 mx-1" role="button" on:click="{() => toggle(task._id, !task.completed)}">
+<div class="flex my-1 py-1 text-lg text-left rounded-lg hover:shadow-md hover:bg-gray-50" class:checked="{task.completed}" on:mouseenter={toggleDel} on:mouseleave={toggleDel}>
+  <div class="flex-none w-8 mx-1 text-center" role="button" on:click="{() => toggle(task._id, !task.completed)}">
     {#if task.completed}
-      <div class="items-center justify-center h-full flex"><i class="far fa-check-circle"></i></div>
+      <div class="flex items-center justify-center h-full"><i class="far fa-check-circle"></i></div>
     {:else}
-      <div class="items-center justify-center h-full flex"><i class="far fa-circle"></i></div>
+      <div class="flex items-center justify-center h-full"><i class="far fa-circle"></i></div>
     {/if}
   </div>
   <div class="flex-grow" class:checked-title="{task.completed}" role="button" on:click="{() => toggle(task._id, !task.completed)}">

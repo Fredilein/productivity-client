@@ -20,7 +20,7 @@
 </script>
 
 <div class="container mx-auto bg-white shadow-lg sm:rounded-lg p-3 m-12">
-  <div class="h-12 flex bg-gray-50 shadow -mt-6 mb-3 rounded-lg">
+  <div class="h-12 flex bg-gray-100 shadow -mt-6 mb-3 rounded-lg">
     <div class="flex-1 items-center justify-start flex pl-6 font-bold text-lg">
       {slot.category.title}
     </div>

@@ -70,10 +70,12 @@
   }
 </script>
 
-<h1><i class="fas fa-calendar-plus"></i> New Slot</h1>
 <form on:submit|preventDefault={handleSubmit}>
-  <div class="container mx-auto bg-gray-50 shadow-lg sm:rounded-lg p-3 mb-8">
-    <div class="relative flex">
+  <div class="container p-3 mx-auto mb-8 shadow-lg bg-gray-50 sm:rounded-lg">
+
+    <div class="container w-32 mx-auto text-white bg-indigo-500 rounded-full shadow-md -mt-7">New Slot</div>
+
+    <div class="relative flex m-2">
       <div class="flex-1 p-1">
         <Select items={categoriesMap} on:select={handleSelectCat} placeholder="Select Category..."></Select>
       </div>
@@ -81,7 +83,7 @@
         <Select items={global.days} on:select={handleSelectDay} placeholder="Select Day..."></Select>
       </div>
     </div>
-    <div class="relative flex w-full p-1">
+    <div class="relative flex w-full m-2">
         <div class="flex-none">
           <input type="text" class="time-input" bind:value={start_time.hour}>
           <span>:</span>
@@ -91,13 +93,13 @@
           <span>:</span>
           <input type="text" class="time-input" bind:value={end_time.minute}>
         </div>
-        <button class="flex-1 bg-indigo-500 text-white acitve:bg-indigo-600 font-bold uppercase text-sm rounded-lg shadow hover:shadow-lg outline-none focus:outline-none ml-4 ease-linear transition-all duration-150" disabled={!inputValid} type=submit><i class="fas fa-plus-circle"></i> Add</button>
+        <button class="flex-1 mx-4 text-sm font-bold text-white uppercase bg-green-500 rounded-lg shadow outline-none acitve:bg-green-600 hover:shadow-lg focus:outline-none ease-linear transition-all duration-150" disabled={!inputValid} type=submit><i class="fas fa-plus-circle"></i> Add</button>
     </div>
   </div>
 </form>
 
 <style lang="postcss">
   .time-input {
-    @apply w-8 p-1 pl-2 bg-white rounded text-sm border-0 shadow-md outline-none focus:outline-none focus:ring;
+    @apply w-8 p-2 ml-1 bg-white rounded text-sm border-0 shadow-md outline-none focus:outline-none focus:ring;
   }
 </style>

@@ -20,11 +20,12 @@
   }
 </script>
 
-<h1><i class="fas fa-calendar-day"></i> Today</h1>
-<div class="container" style="margin: 20px;">
-  <samp>- Should list tasks for current day</samp><br>
-  <samp>- Actually lists basicly everything (all slots with all tasks)</samp><br>
-  <samp>- Can add a new task here</samp><br>
+<div class="container p-3 mx-auto mb-12 font-mono text-left bg-gray-100 shadow-md sm:rounded-lg">
+  <div class="font-bold">Today</div>
+  - Should list tasks for current day<br>
+  - Actually lists basicly everything (all slots with all tasks)<br>
+  - Can add a new task here<br>
+  - TODO: Fix trashcan
 </div>
 
 <NewTask slots={slots} on:taskAdded={updateSlots}/>
