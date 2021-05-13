@@ -2,7 +2,7 @@
   import { Router, link } from 'svelte-routing';
 </script>
 
-<div class="container sticky top-0 sm:top-8 mx-auto max-w-sm sm:max-w-2xl bg-indigo-500 shadow-xl sm:my-8 h-12 justify-center sm:rounded-lg">
+<div class="container sticky top-0 sm:top-8 mx-auto max-w-sm sm:max-w-2xl bg-indigo-500 dark:bg-indigo-800 shadow-xl sm:my-8 h-12 justify-center sm:rounded-lg">
   <div class="flex text-center text-lg h-full text-gray-50">
     <div class="btn-nav">
       <a href="/" use:link><i class="fas fa-home"></i> Home</a>

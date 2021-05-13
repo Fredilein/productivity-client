@@ -19,13 +19,13 @@
 
 </script>
 
-<div class="container mx-auto bg-white shadow-lg sm:rounded-lg p-3 m-12">
-  <div class="h-12 flex bg-gray-100 shadow -mt-6 mb-3 rounded-lg">
-    <div class="flex-1 items-center justify-start flex pl-6 font-bold text-lg">
+<div class="container p-3 m-12 mx-auto bg-white dark:bg-gray-800 dark:text-gray-50 shadow-lg sm:rounded-lg">
+  <div class="flex h-12 mb-3 -mt-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow">
+    <div class="flex items-center justify-start flex-1 pl-6 text-lg font-bold">
       {slot.category.title}
     </div>
     {#if slot.start_time && slot.end_time}
-      <div class="flex-1 items-center justify-end flex pr-6 font-mono text-lg">
+      <div class="flex items-center justify-end flex-1 pr-6 font-mono text-lg">
         {prettyTime(slot.start_time, slot.end_time)}
       </div>
     {/if}
