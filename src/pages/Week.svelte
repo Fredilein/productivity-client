@@ -53,9 +53,9 @@
 </div>
 <div class="container">
   {#each daysMapped as day}
-    <h3>{day.name}</h3>
+    <div class="container mx-auto text-2xl bg-indigo-50 text-indigo-500 h-10 w-48 items-center justify-center flex rounded-full shadow-md">{day.name}</div>
     {#if day.slots.length === 0}
-      <p><i class="fas fa-check"></i></p>
+      <div class="mt-2 mb-4"><i class="fas fa-check"></i></div>
     {:else}
       {#each day.slots as slot}
         <Slot {slot} on:taskUpdated={updateSlots} />

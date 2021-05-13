@@ -70,6 +70,7 @@
   }
 </script>
 
+<!-- 
 <h2><i class="fas fa-calendar-plus"></i> New Slot</h2>
 <form on:submit|preventDefault={handleSubmit}>
   <div class="container new theme">
@@ -96,64 +97,93 @@
       </div>
     </div>
   </div>
+</form>-->
+
+<h1><i class="fas fa-calendar-plus"></i> New Slot</h1>
+<form on:submit|preventDefault={handleSubmit}>
+  <div class="container mx-auto bg-gray-50 shadow-lg sm:rounded-lg p-3 mb-8">
+    <div class="relative flex">
+      <div class="flex-1 p-1">
+        <Select items={categoriesMap} on:select={handleSelectCat} placeholder="Select Category..."></Select>
+      </div>
+      <div class="flex-1 p-1">
+        <Select items={global.days} on:select={handleSelectDay} placeholder="Select Day..."></Select>
+      </div>
+    </div>
+    <div class="relative flex w-full p-1">
+        <div class="flex-none">
+          <input type="text" class="time-input" bind:value={start_time.hour}>
+          <span>:</span>
+          <input type="text" class="time-input" bind:value={start_time.minute}>
+          <span>-</span>
+          <input type="text" class="time-input" bind:value={end_time.hour}>
+          <span>:</span>
+          <input type="text" class="time-input" bind:value={end_time.minute}>
+        </div>
+        <button class="flex-1 bg-indigo-500 text-white acitve:bg-indigo-600 font-bold uppercase text-sm rounded-lg shadow hover:shadow-lg outline-none focus:outline-none ml-4 ease-linear transition-all duration-150" disabled={!inputValid} type=submit><i class="fas fa-plus-circle"></i> Add</button>
+    </div>
+  </div>
 </form>
 
-
-<style>
-  form {
-    padding: 12px;
+<style lang="postcss">
+  .time-input {
+    @apply w-8 p-1 pl-2 bg-white rounded text-sm border-0 shadow-md outline-none focus:outline-none focus:ring;
   }
 
-  h2 {
-    margin-top: 36px;
-  }
+  /* form { */
+  /*   padding: 12px; */
+  /* } */
 
-  .new {
-    padding: 12px;
-    border: 1px solid rgba(0,0,0,.125);
-    background-color: rgba(0,0,0,.03);
-    box-shadow: 1px 2px 4px lightgrey;
-  }
+  /* h2 { */
+  /*   margin-top: 36px; */
+  /* } */
 
-  .row-new {
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-bottom: 12px;
-  }
+  /* .new { */
+  /*   padding: 12px; */
+  /*   border: 1px solid rgba(0,0,0,.125); */
+  /*   background-color: rgba(0,0,0,.03); */
+  /*   box-shadow: 1px 2px 4px lightgrey; */
+  /* } */
 
-  .col-select-left {
-    padding: 0px;
-    margin-right: 6px;
-  }
+  /* .row-new { */
+  /*   padding-left: 12px; */
+  /*   padding-right: 12px; */
+  /*   margin-bottom: 12px; */
+  /* } */
 
-  .col-select-right {
-    padding: 0px;
-    margin-left: 6px;
-  }
+  /* .col-select-left { */
+  /*   padding: 0px; */
+  /*   margin-right: 6px; */
+  /* } */
 
-  .col-submit {
-    padding: 0px;
-    margin-left: 6px;
-  }
+  /* .col-select-right { */
+  /*   padding: 0px; */
+  /*   margin-left: 6px; */
+  /* } */
 
-  .btn-new {
-    width: 100%;
-    height: 100%;
-    padding-left: 3px;
-    padding-right: 3px;
-  }
+  /* .col-submit { */
+  /*   padding: 0px; */
+  /*   margin-left: 6px; */
+  /* } */
 
-  .theme {
-    --borderRadius: 12px;
-    border-radius: 12px;
-  }
+  /* .btn-new { */
+  /*   width: 100%; */
+  /*   height: 100%; */
+  /*   padding-left: 3px; */
+  /*   padding-right: 3px; */
+  /* } */
 
-  .col-time {
-    padding: 0px;
-  }
+  /* .theme { */
+  /*   --borderRadius: 12px; */
+  /*   border-radius: 12px; */
+  /* } */
+
+  /* .col-time { */
+  /*   padding: 0px; */
+  /* } */
   
-  .input-time {
-    border-radius: 12px;
-    width: 48px;
-  }
+  /* .input-time { */
+  /*   border-radius: 12px; */
+  /*   width: 48px; */
+  /* } */
 </style>
