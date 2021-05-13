@@ -62,8 +62,14 @@
 
 
 <style>
+  form {
+    padding: 12px;
+  }
   .newtask {
     padding: 12px;
+    border: 1px solid rgba(0,0,0,.125);
+    background-color: rgba(0,0,0,.03);
+    box-shadow: 1px 2px 4px lightgrey;
   }
 
   .row-newtask {
