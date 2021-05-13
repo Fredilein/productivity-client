@@ -2,8 +2,6 @@
   import { createEventDispatcher } from 'svelte';
   import axios from 'axios';
 
-  import Task from '../components/Task.svelte';
-
   import global from '../global.js';
 
   export let task;

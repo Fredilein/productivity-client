@@ -5,6 +5,18 @@
 
 
 <Navbar />
-<main>
+<div class="container mx-auto max-w-sm md:max-w-2xl text-center">
   <Router />
-</main>
+</div>
+
+<style global lang="postcss">
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    h1 {
+      @apply text-3xl;
+    }
+  }
+</style>
