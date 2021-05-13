@@ -24,7 +24,7 @@
     return slots.map((slot) => {
       return {
         value: slot._id,
-        label: slot.category.title + ' on ' + global.days.find(x => x.value === slot.day).label
+        label: '<strong>' + slot.category.title + '</strong> on ' + global.days.find(x => x.value === slot.day).label
       }
     });
   }
