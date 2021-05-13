@@ -1,27 +1,19 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# Productivity-Client
 
----
-
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+## TODO
+- [ ] Clean up CSS: Move similar stuff to `global.css`, use stylus.
+- [ ] Form to add category, probably new page with that and `NewSlot` component
+- [ ] Today view with actually today items
+- [ ] Some colors...
+- [ ] Trashcan hover effect to delete tasks sucks on mobile
+- [ ] Time input which is not that ugly
 
 ## Get started
 
 Install the dependencies...
 
 ```bash
-cd svelte-app
+cd productivity-client
 npm install
 ```
 
