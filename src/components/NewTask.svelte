@@ -45,7 +45,7 @@
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
-  <div class="container p-3 mx-auto shadow-lg bg-gray-100 sm:rounded-lg">
+  <div class="container p-3 mx-auto bg-gray-100 shadow-lg sm:rounded-lg">
 
     <div class="container w-32 mx-auto text-white bg-indigo-500 rounded-full shadow-md -mt-7">New Task</div>
 

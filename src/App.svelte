@@ -5,7 +5,7 @@
 
 
 <Navbar />
-<div class="container mx-auto max-w-sm md:max-w-2xl text-center">
+<div class="container mx-auto text-center max-w-screen-sm sm:max-w-2xl">
   <Router />
 </div>
 

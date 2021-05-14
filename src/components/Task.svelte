@@ -1,10 +1,12 @@
 <script>
   import { createEventDispatcher } from 'svelte';
+  import { fade } from 'svelte/transition';
   import axios from 'axios';
 
   import global from '../global.js';
 
   export let task;
+  export let editing;
 
   const dispatch = createEventDispatcher();
 
@@ -33,7 +35,7 @@
   }
 </script>
 
-<div class="flex py-1 my-1 text-lg text-left rounded-lg hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800" class:checked="{task.completed}" on:mouseenter={toggleDel} on:mouseleave={toggleDel}>
+<div class="flex py-1 my-1 text-lg text-left rounded-lg hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800" class:checked="{task.completed}">
   <div class="flex-none w-8 mx-1 text-center" role="button" on:click="{() => toggle(task._id, !task.completed)}">
     {#if task.completed}
       <div class="flex items-center justify-center h-full"><i class="far fa-check-circle"></i></div>
@@ -44,9 +46,11 @@
   <div class="flex-grow" class:checked-title="{task.completed}" role="button" on:click="{() => toggle(task._id, !task.completed)}">
       { task.title }
   </div>
-  {#if showDel}
-    <span class="delete icon">
-      <div on:click|once={deleteItem(task._id)}><i class="fas fa-trash"></i></div>
+  {#if editing}
+    <span class="flex-none w-8 mx-1 text-center text-red-500 rounded-lg shadow hover:text-red-800" transition:fade>
+      <a role="button" on:click|once={deleteItem(task._id)}>
+        <div class="flex items-center justify-center h-full"><i class="far fa-trash-alt"></i></div>
+      </a>
     </span>
   {/if}
 </div>

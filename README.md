@@ -5,7 +5,7 @@
 - [ ] Form to add category, probably new page with that and `NewSlot` component
 - [ ] Today view with actually today items
 - [ ] Some colors...
-- [ ] Trashcan hover effect to delete tasks sucks on mobile. And is broken anyways.
+- [x] Trashcan hover effect to delete tasks sucks on mobile. And is broken anyways.
 - [ ] Time input which is not that ugly
 
 ## Get started

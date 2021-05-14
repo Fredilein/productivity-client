@@ -25,7 +25,6 @@
   - Should list tasks for current day<br>
   - Actually lists basicly everything (all slots with all tasks)<br>
   - Can add a new task here<br>
-  - TODO: Fix trashcan
 </div>
 
 <NewTask slots={slots} on:taskAdded={updateSlots}/>
