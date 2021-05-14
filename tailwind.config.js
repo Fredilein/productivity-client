@@ -9,10 +9,11 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    // fontFamily: {
-    //   sans: ['Graphik', 'sans-serif'],
-    //   serif: ['Merriweather', 'serif'],
-    // },
+    fontFamily: {
+      sans: ['Nunito', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+      mono: ['Roboto Mono', 'mono'],
+    },
   },
   variants: {
     extend: {},
