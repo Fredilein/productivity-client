@@ -35,7 +35,7 @@
   }
 </script>
 
-<div class="flex py-1 my-1 text-lg text-left rounded-lg hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800" class:checked="{task.completed}">
+<div class="flex py-1 my-1 text-lg text-left rounded-lg hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800 mx-2" class:checked="{task.completed}">
   <div class="flex-none w-8 mx-1 text-center" role="button" on:click="{() => toggle(task._id, !task.completed)}">
     {#if task.completed}
       <div class="flex items-center justify-center h-full"><i class="far fa-check-circle"></i></div>
@@ -47,7 +47,7 @@
       { task.title }
   </div>
   {#if editing}
-    <span class="flex-none w-8 mx-1 text-center text-red-500 rounded-lg shadow hover:text-red-800" transition:fade>
+    <span class="flex-none w-8 mx-1 text-center text-red-500 rounded-lg shadow hover:text-red-800" transition:fade="{{ duration: 150 }}">
       <a role="button" on:click|once={deleteItem(task._id)}>
         <div class="flex items-center justify-center h-full"><i class="far fa-trash-alt"></i></div>
       </a>
